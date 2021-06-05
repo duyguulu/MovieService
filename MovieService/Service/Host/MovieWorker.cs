@@ -26,12 +26,14 @@ namespace MovieService.Service.Host
 
         public async Task UpdateData()
         {
+
+
             Interlocked.Increment(ref number);
             logger.LogInformation($"{number} - Background Worker is running : {DateTime.Now}");
             /*
              * Update Data Cde Block in here
              */
-            theMovieDb.GetMovies(1);
+            theMovieDb.UpdateMovieDb(1);
         }
 
         public async Task DoWork(CancellationToken cancellationToken)

@@ -16,6 +16,7 @@ namespace MovieService.Context
 
 		public DbSet<User> Users { get; set; }
 		public DbSet<Movie> Movies { get; set; }
+		public DbSet<Commend> Commends { get; set; }
 
 	}
 }
