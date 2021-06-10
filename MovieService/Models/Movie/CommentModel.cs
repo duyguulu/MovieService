@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieService.Entities
+namespace MovieService.Models.Movie
 {
-	public class Commend
-		//Todoo duzelt
+	public class CommentModel
 	{
-		public int Id { get; set; }
-		public int UserId { get; set; }
 		public int MovieId { get; set; }
+		public int UserId { get; set; }
 		public string Note { get; set; }
 		public double Point { get; set; }
 	}

@@ -32,13 +32,13 @@ namespace MovieService.Controllers
 		//[Authorize(Roles = "member")]
 		[AllowAnonymous]
 		[HttpPost("addcommend")]
-		public async Task<IActionResult> AddCommend(CommendModel commendModel)
+		public async Task<IActionResult> AddCommend(CommentModel commendModel)
 		{
 			try
 			{
 				using (var context = new MovieContext())
 				{
-					context.Commends.Add(new Entities.Commend
+					context.Commends.Add(new Entities.Comment
 					{
 						MovieId = commendModel.MovieId,
 						Point = commendModel.Point,

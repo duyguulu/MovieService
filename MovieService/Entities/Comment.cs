@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieService.Models.Movie
+namespace MovieService.Entities
 {
-	public class CommendModel
+	public class Comment
 	{
-		public int MovieId { get; set; }
+		public int Id { get; set; }
 		public int UserId { get; set; }
+		public int MovieId { get; set; }
 		public string Note { get; set; }
 		public double Point { get; set; }
 	}

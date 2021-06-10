@@ -51,7 +51,8 @@ namespace MovieService
 				c.SwaggerDoc("v1", new OpenApiInfo { Title = "MovieService", Version = "v1" });
 			});
 
-			//TODOO bak
+			//AddTransient
+			//AddScoped
 			services.AddSingleton<IWorker, MovieWorker>();
 		}
 

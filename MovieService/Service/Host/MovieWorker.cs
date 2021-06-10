@@ -14,8 +14,7 @@ namespace MovieService.Service.Host
         private int number = 0;
         private Timer timer;
         private TheMovieDB theMovieDb;
-        //TODOO nerden alınacak performans bak.
-        //TODOO dependency injection türleri nelerdir.
+        //TODO nerden alınacak performans bak.
         public MovieWorker(ILogger<MovieWorker> logger)
         {
             this.logger = logger;
