@@ -7,3 +7,6 @@ Proje içindekiler:
 - Film listesi periyodik olarak (örn: Saat başı) themoviedb.org'dan bir Worker çalıştırılarak (https://developers.themoviedb.org/3/getting-started/introduction) çekiliyor.
 
 Projenin front-end' i üzerinde çalışılıyor.
+
+TODO
+- Test yazılacak.
