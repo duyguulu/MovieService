@@ -5,8 +5,8 @@ Proje içindekiler:
 - Id ile film görüntüleme: Film bilgileri ile birlikte ortalama puan, kullanıcının verdiği puan ve eklediği notlar gösteriliyor.
 - Film tavsiye etme: Verilen bir adrese e-posta gönderiliyor.
 - Film listesi periyodik olarak (örn: Saat başı) themoviedb.org'dan bir Worker çalıştırılarak (https://developers.themoviedb.org/3/getting-started/introduction) çekiliyor.
-
-Projenin front-end' i üzerinde çalışılıyor.
-
+- PostgreSQL kullanılmıştır.
+-API servisi: https://developers.themoviedb.org/3/getting-started/introduction
 TODO
+- Projenin front-end' i üzerinde çalışılıyor.
 - Test yazılacak.
