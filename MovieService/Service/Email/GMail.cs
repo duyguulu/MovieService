@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieService.Models.Movie;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -14,7 +15,8 @@ namespace MovieService.Service.Email
 			GC.SuppressFinalize(this);
 		}
 
-		public void SendMail(string email, string message,string header= "TMDB")
+		//public void SendMail(string email, string message,string header= "TMDB")
+		public void SendMail(EmailModel emailModel)
 		{
 			//MailMessage mymail = new MailMessage();
 			//mymail.To.Add(email);
@@ -35,14 +37,14 @@ namespace MovieService.Service.Email
 				using (MailMessage mail = new MailMessage())
 				{
 					mail.From = new MailAddress("tradingwebsite.estore@gmail.com");
-					mail.To.Add(email);
-					mail.Subject = header;
-					mail.Body = $"{message}";
+					mail.To.Add(emailModel.Email);
+					mail.Subject = emailModel.Header;
+					mail.Body = $"{emailModel.Message}";
 					mail.IsBodyHtml = true;
 
 					using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
 					{
-						smtp.Credentials = new NetworkCredential("tradingwebsite.estore@gmail.com", "parola123_E");
+						smtp.Credentials = new NetworkCredential("tradingwebsite.estore@gmail.com", "TestParola123");
 						smtp.EnableSsl = true;
 						smtp.Send(mail);
 					}

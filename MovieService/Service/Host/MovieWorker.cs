@@ -14,7 +14,6 @@ namespace MovieService.Service.Host
         private int number = 0;
         private Timer timer;
         private TheMovieDB theMovieDb;
-        //TODO nerden alınacak performans bak.
         public MovieWorker(ILogger<MovieWorker> logger)
         {
             this.logger = logger;

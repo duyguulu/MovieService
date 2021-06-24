@@ -26,5 +26,8 @@ namespace MovieService.Entities
 
 		[Required, MaxLength(30)]
 		public string Email { get; set; }
+
+		[Required, MaxLength(20)]
+		public string Role { get; set; }
 	}
 }

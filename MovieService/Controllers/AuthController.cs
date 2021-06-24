@@ -26,6 +26,7 @@ namespace MovieService.Controllers
 			_configuration = configuration;
 		}
 
+		//todo ++++ neden asenkron bir yapı kullandık?
 		[AllowAnonymous]
 		[HttpPost("register")]
 		public async Task<IActionResult> Register(UserRegisterModel user)
@@ -67,7 +68,8 @@ namespace MovieService.Controllers
 					var result=await context.Users.FirstOrDefaultAsync(x=> x.Username==user.Username && x.Password==user.Password);
 					if (result != null)
 					{
-						return Ok(user);
+						var token = TokenHelper.CreateToken(_configuration, new UserTokenModel { FullName=result.FirstName+" "+result.LastName, UserId=result.Id,Role=result.Role });
+						return Ok(new { token = token, username = result.Username});
 					}
 					else
 					{
