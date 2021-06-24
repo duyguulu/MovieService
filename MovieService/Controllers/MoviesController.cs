@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using MovieService.Context;
+using MovieService.Models.Auth;
 using MovieService.Models.Movie;
 using MovieService.Service.Email;
 using System;
@@ -34,7 +37,7 @@ namespace MovieService.Controllers
 		}
 
 		[Authorize(Roles = "user")]
-		[AllowAnonymous]
+
 		[HttpPost("addcommend")]
 		public async Task<IActionResult> AddCommend(CommentModel commendModel)
 		{
@@ -66,7 +69,6 @@ namespace MovieService.Controllers
 		}
 
 		//[Authorize(Roles = "member")]
-		[AllowAnonymous]
 		[HttpGet("getcommend")]
 		public async Task<IActionResult> GetCommend()
 		{
@@ -87,8 +89,6 @@ namespace MovieService.Controllers
 
 		}
 
-
-		[AllowAnonymous]
 		[HttpGet("getbyid")]
 		public async Task<IActionResult> GetById(int id)
 		{
@@ -108,14 +108,12 @@ namespace MovieService.Controllers
 			}
 
 		}
-
-		//?mail atamıyorum
-		[AllowAnonymous]
+		
 		[HttpGet("sendmail")]
 		public ActionResult SendMailForSuggestion(string email, string movieName)
 		{
-			// user bilgisi token den alınmalı
-			var _userFullname = "Duygu Ulu";
+			var userName= HttpContext.User.Identity.Name;
+			var _userFullname = userName;
 
 			var mailBody = $"<h2>Tavsiye eden : {_userFullname}</h2>" +
 				$"<h2>Film : {movieName}</h2>";

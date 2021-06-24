@@ -33,5 +33,7 @@ namespace MovieService.Helpers
 			return new JwtSecurityTokenHandler().WriteToken(token);
 
 		}
+
+
 	}
 }

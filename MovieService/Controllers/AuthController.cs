@@ -26,7 +26,6 @@ namespace MovieService.Controllers
 			_configuration = configuration;
 		}
 
-		//todo ++++ neden asenkron bir yapı kullandık?
 		[AllowAnonymous]
 		[HttpPost("register")]
 		public async Task<IActionResult> Register(UserRegisterModel user)
@@ -91,6 +90,7 @@ namespace MovieService.Controllers
 
 			return Ok();
 		}
+
 
 		
 	}
